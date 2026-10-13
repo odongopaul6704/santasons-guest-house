@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Santasons Guest House — Lira City | Accommodation, Bar & Parking</title>
+<meta name="description" content="Santasons Guest House in Lira City. Self-contained rooms, free WiFi, DSTV, breakfast, bar, parking & laundry. On Kampala Road, Amuca Adyangopiro." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+:root{
+  --navy:#1a1a5e;
+  --navy-dark:#0f0f3d;
+  --gold:#f5b301;
+  --gold-dark:#d99b00;
+  --cream:#fdf8ef;
+  --warm:#e8c99b;
+  --text:#2a2a2a;
+  --muted:#6b6b6b;
+  --white:#ffffff;
+  --shadow:0 10px 40px rgba(0,0,0,.12);
+  --radius:16px;
+}
+html{ scroll-behavior:smooth; }
+body{
+  font-family:'Poppins', sans-serif;
+  color:var(--text);
+  background:var(--cream);
+  line-height:1.65;
+  overflow-x:hidden;
+}
+img{ display:block; max-width:100%; height:auto; }
+a{ text-decoration:none; color:inherit; }
+h1,h2,h3{ font-family:'Playfair Display', serif; line-height:1.2; color:var(--navy); }
+
+.navbar{
+  position:fixed; top:0; left:0; width:100%;
+  background:rgba(255,255,255,.96);
+  backdrop-filter:blur(10px);
+  box-shadow:0 2px 20px rgba(0,0,0,.08);
+  z-index:1000;
+  transition:.3s;
+}
+.nav-inner{
+  max-width:1200px; margin:auto;
+  padding:14px 24px;
+  display:flex; align-items:center; justify-content:space-between;
+}
+.logo{ display:flex; flex-direction:column; line-height:1; }
+.logo .brand{
+  font-family:'Playfair Display', serif;
+  font-weight:800; font-size:1.6rem;
+  color:var(--navy); letter-spacing:1px;
+}
+.logo .brand span{ color:var(--gold); }
+.logo .tag{
+  font-size:.62rem; letter-spacing:3.5px;
+  color:var(--muted); font-weight:500;
+  text-transform:uppercase; margin-top:3px;
+}
+.nav-links{ display:flex; gap:28px; align-items:center; }
+.nav-links a{
+  font-size:.92rem; font-weight:500; color:var(--text);
+  position:relative; transition:.3s;
+}
+.nav-links a:hover{ color:var(--gold-dark); }
+.nav-links a::after{
+  content:''; position:absolute; bottom:-6px; left:0;
+  width:0; height:2px; background:var(--gold); transition:.3s;
+}
+.nav-links a:hover::after{ width:100%; }
+.btn-book{
+  background:var(--gold); color:var(--navy) !important;
+  padding:10px 22px; border-radius:50px;
+  font-weight:600 !important; transition:.3s;
+}
+.btn-book:hover{ background:var(--gold-dark); transform:translateY(-2px); }
+.btn-book::after{ display:none; }
+.menu-toggle{
+  display:none; font-size:1.6rem; background:none; border:none;
+  color:var(--navy); cursor:pointer;
+}
+
+.hero{
+  position:relative; height:100vh; min-height:640px;
+  display:flex; align-items:center; justify-content:center;
+  text-align:center; color:#fff; overflow:hidden;
+}
+.hero::before{
+  content:''; position:absolute; inset:0;
+  background:url('hero.jpeg') center/cover no-repeat;
+  transform:scale(1.05); z-index:-2;
+}
+.hero::after{
+  content:''; position:absolute; inset:0; z-index:-1;
+  background:linear-gradient(180deg, rgba(15,15,61,.72) 0%, rgba(15,15,61,.55) 50%, rgba(15,15,61,.85) 100%);
+}
+.hero-content{ max-width:900px; padding:0 24px; animation:fadeUp 1.2s ease; }
+.hero .eyebrow{
+  display:inline-block; font-size:.8rem; letter-spacing:4px;
+  text-transform:uppercase; color:var(--gold);
+  border:1px solid var(--gold); padding:8px 20px;
+  border-radius:50px; margin-bottom:26px; font-weight:500;
+}
+.hero h1{
+  font-size:clamp(2.4rem, 6vw, 4.5rem); color:#fff;
+  margin-bottom:20px; font-weight:800;
+}
+.hero h1 em{ color:var(--gold); font-style:normal; }
+.hero p{
+  font-size:clamp(1rem, 1.5vw, 1.2rem);
+  max-width:640px; margin:0 auto 38px; opacity:.95; font-weight:300;
+}
+.hero-btns{ display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+.btn{
+  display:inline-flex; align-items:center; gap:10px;
+  padding:15px 34px; border-radius:50px;
+  font-weight:600; font-size:.95rem;
+  transition:.3s; cursor:pointer; border:none;
+}
+.btn-primary{ background:var(--gold); color:var(--navy); }
+.btn-primary:hover{ background:var(--gold-dark); transform:translateY(-3px); box-shadow:0 12px 30px rgba(245,179,1,.4); }
+.btn-outline{ background:transparent; color:#fff; border:2px solid #fff; }
+.btn-outline:hover{ background:#fff; color:var(--navy); transform:translateY(-3px); }
+.scroll-hint{
+  position:absolute; bottom:32px; left:50%; transform:translateX(-50%);
+  color:#fff; font-size:1.6rem; animation:bounce 2s infinite; opacity:.7;
+}
+@keyframes bounce{ 0%,100%{transform:translate(-50%,0)} 50%{transform:translate(-50%,12px)} }
+@keyframes fadeUp{ from{opacity:0; transform:translateY(30px)} to{opacity:1; transform:translateY(0)} }
+
+section{ padding:100px 24px; }
+.container{ max-width:1200px; margin:auto; }
+.section-head{ text-align:center; margin-bottom:60px; }
+.section-head .eyebrow{
+  font-size:.78rem; letter-spacing:4px; text-transform:uppercase;
+  color:var(--gold-dark); font-weight:600; display:block; margin-bottom:12px;
+}
+.section-head h2{ font-size:clamp(1.9rem, 4vw, 3rem); margin-bottom:14px; }
+.section-head p{ color:var(--muted); max-width:620px; margin:auto; font-weight:300; }
+.divider{ width:70px; height:4px; background:var(--gold); margin:18px auto 0; border-radius:2px; }
+
+.about{ background:var(--white); }
+.about-grid{ display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+.about-img{ position:relative; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); }
+.about-img img{ width:100%; height:520px; object-fit:cover; }
+.about-badge{
+  position:absolute; bottom:24px; right:-20px;
+  background:var(--gold); color:var(--navy);
+  padding:22px 28px; border-radius:var(--radius);
+  text-align:center; box-shadow:var(--shadow);
+}
+.about-badge strong{ display:block; font-size:1.8rem; font-family:'Playfair Display', serif; }
+.about-badge span{ font-size:.75rem; letter-spacing:2px; text-transform:uppercase; font-weight:600; }
+.about-text h2{ margin-bottom:20px; }
+.about-text p{ color:var(--muted); margin-bottom:18px; font-weight:300; }
+.about-list{ list-style:none; margin-top:26px; display:grid; gap:12px; }
+.about-list li{ display:flex; align-items:center; gap:12px; font-weight:400; }
+.about-list li::before{
+  content:'✓'; flex-shrink:0;
+  width:26px; height:26px; border-radius:50%;
+  background:var(--gold); color:var(--navy);
+  display:flex; align-items:center; justify-content:center;
+  font-weight:700; font-size:.8rem;
+}
+
+.rooms{ background:var(--cream); }
+.rooms-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); gap:30px; }
+.room-card{
+  background:#fff; border-radius:var(--radius); overflow:hidden;
+  box-shadow:0 6px 30px rgba(0,0,0,.08); transition:.4s;
+}
+.room-card:hover{ transform:translateY(-10px); box-shadow:0 20px 50px rgba(0,0,0,.15); }
+.room-card img{ width:100%; height:250px; object-fit:cover; }
+.room-info{ padding:26px; }
+.room-info h3{ font-size:1.35rem; margin-bottom:10px; }
+.room-info p{ color:var(--muted); font-size:.92rem; font-weight:300; margin-bottom:16px; }
+.room-features{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:18px; }
+.room-features span{
+  font-size:.72rem; background:var(--cream); color:var(--navy);
+  padding:5px 12px; border-radius:50px; font-weight:500;
+  border:1px solid #eee;
+}
+.room-info .rate{
+  font-weight:600; color:var(--gold-dark); font-size:.9rem;
+  display:inline-flex; align-items:center; gap:6px;
+}
+
+.amenities{ background:var(--navy); color:#fff; }
+.amenities .section-head h2{ color:#fff; }
+.amenities .section-head p{ color:rgba(255,255,255,.7); }
+.amenities .divider{ background:var(--gold); }
+.amen-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:24px; }
+.amen-card{
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.12);
+  padding:34px 24px; border-radius:var(--radius);
+  text-align:center; transition:.35s;
+}
+.amen-card:hover{ background:rgba(245,179,1,.14); border-color:var(--gold); transform:translateY(-6px); }
+.amen-icon{ font-size:2.4rem; margin-bottom:16px; display:block; }
+.amen-card h4{ font-family:'Poppins', sans-serif; font-size:1rem; color:#fff; margin-bottom:8px; font-weight:600; }
+.amen-card p{ font-size:.85rem; color:rgba(255,255,255,.65); font-weight:300; }
+
+.gallery{ background:var(--white); }
+.gallery-grid{
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr));
+  gap:16px;
+}
+.gallery-item{
+  position:relative; border-radius:12px; overflow:hidden;
+  height:240px; cursor:pointer;
+}
+.gallery-item img{ width:100%; height:100%; object-fit:cover; transition:.6s; }
+.gallery-item:hover img{ transform:scale(1.12); }
+.gallery-item::after{
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(180deg, transparent 50%, rgba(15,15,61,.6));
+  opacity:0; transition:.4s;
+}
+.gallery-item:hover::after{ opacity:1; }
+
+.location{ background:var(--cream); }
+.location-grid{ display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center; }
+.location-text h2{ margin-bottom:20px; }
+.location-text > p{ color:var(--muted); margin-bottom:26px; font-weight:300; }
+.dir-card{
+  background:#fff; padding:22px 26px; border-radius:var(--radius);
+  box-shadow:0 6px 24px rgba(0,0,0,.06);
+  display:flex; gap:18px; align-items:flex-start;
+  margin-bottom:16px; border-left:4px solid var(--gold);
+}
+.dir-card .icon{ font-size:1.6rem; flex-shrink:0; }
+.dir-card h4{ font-family:'Poppins', sans-serif; font-size:1rem; margin-bottom:6px; color:var(--navy); }
+.dir-card p{ font-size:.88rem; color:var(--muted); font-weight:300; }
+.map-embed{
+  border-radius:var(--radius); overflow:hidden;
+  box-shadow:var(--shadow); height:100%; min-height:420px;
+}
+.map-embed iframe{ width:100%; height:100%; border:0; display:block; min-height:420px; }
+
+.contact{ background:var(--white); }
+.contact-grid{ display:grid; grid-template-columns:1fr 1.2fr; gap:50px; }
+.contact-info h3{ font-size:1.5rem; margin-bottom:20px; }
+.contact-info > p{ color:var(--muted); margin-bottom:30px; font-weight:300; }
+.contact-item{ display:flex; gap:16px; align-items:flex-start; margin-bottom:22px; }
+.contact-item .ci-icon{
+  width:48px; height:48px; flex-shrink:0; border-radius:50%;
+  background:var(--cream); color:var(--gold-dark);
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.2rem;
+}
+.contact-item h4{ font-family:'Poppins', sans-serif; font-size:.78rem; letter-spacing:2px; text-transform:uppercase; color:var(--muted); margin-bottom:4px; }
+.contact-item a, .contact-item p{ font-weight:500; color:var(--navy); font-size:1rem; }
+.contact-item a:hover{ color:var(--gold-dark); }
+
+.booking-form{
+  background:var(--cream); padding:38px;
+  border-radius:var(--radius); box-shadow:0 10px 40px rgba(0,0,0,.06);
+}
+.booking-form h3{ font-size:1.5rem; margin-bottom:8px; }
+.booking-form > p{ color:var(--muted); font-size:.9rem; margin-bottom:26px; font-weight:300; }
+.form-row{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.form-group{ margin-bottom:16px; }
+.form-group label{
+  display:block; font-size:.8rem; font-weight:500; margin-bottom:7px;
+  color:var(--navy); letter-spacing:.3px;
+}
+.form-group input, .form-group select, .form-group textarea{
+  width:100%; padding:13px 16px; border:1.5px solid #e2dccf;
+  border-radius:10px; font-family:'Poppins', sans-serif; font-size:.92rem;
+  background:#fff; color:var(--text); transition:.25s;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus{
+  outline:none; border-color:var(--gold); box-shadow:0 0 0 3px rgba(245,179,1,.15);
+}
+.form-group textarea{ resize:vertical; min-height:90px; }
+.form-submit{
+  width:100%; background:var(--navy); color:#fff;
+  padding:15px; border:none; border-radius:10px;
+  font-family:'Poppins', sans-serif; font-weight:600; font-size:.98rem;
+  cursor:pointer; transition:.3s; display:flex; align-items:center; justify-content:center; gap:10px;
+}
+.form-submit:hover{ background:var(--navy-dark); transform:translateY(-2px); box-shadow:0 10px 25px rgba(26,26,94,.3); }
+.form-note{ font-size:.75rem; color:var(--muted); text-align:center; margin-top:12px; }
+
+footer{
+  background:var(--navy-dark); color:rgba(255,255,255,.75);
+  padding:60px 24px 24px;
+}
+.foot-grid{
+  max-width:1200px; margin:auto;
+  display:grid; grid-template-columns:1.5fr 1fr 1fr; gap:40px;
+  padding-bottom:40px; border-bottom:1px solid rgba(255,255,255,.1);
+}
+.foot-brand .brand{
+  font-family:'Playfair Display', serif; font-weight:800;
+  font-size:1.6rem; color:#fff; letter-spacing:1px;
+}
+.foot-brand .brand span{ color:var(--gold); }
+.foot-brand p{ margin-top:16px; font-size:.9rem; font-weight:300; max-width:340px; }
+.foot-col h4{ color:#fff; font-family:'Poppins', sans-serif; font-size:.9rem; letter-spacing:2px; text-transform:uppercase; margin-bottom:20px; }
+.foot-col ul{ list-style:none; }
+.foot-col ul li{ margin-bottom:11px; font-size:.9rem; font-weight:300; }
+.foot-col ul li a:hover{ color:var(--gold); }
+.foot-bottom{
+  max-width:1200px; margin:auto; padding-top:24px;
+  display:flex; justify-content:space-between; flex-wrap:wrap;
+  gap:12px; font-size:.82rem; font-weight:300;
+}
+
+.float-btns{
+  position:fixed; bottom:24px; right:24px; z-index:999;
+  display:flex; flex-direction:column; gap:14px;
+}
+.float-btn{
+  width:56px; height:56px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  color:#fff; font-size:1.5rem; box-shadow:0 8px 25px rgba(0,0,0,.25);
+  transition:.3s; cursor:pointer;
+}
+.float-btn:hover{ transform:scale(1.12); }
+.float-wa{ background:#25D366; }
+.float-call{ background:var(--gold); color:var(--navy); }
+
+@media (max-width:900px){
+  .nav-links{
+    position:fixed; top:72px; right:-100%; width:280px; height:calc(100vh - 72px);
+    background:#fff; flex-direction:column; align-items:flex-start;
+    padding:40px 30px; gap:22px; box-shadow:-10px 0 40px rgba(0,0,0,.1);
+    transition:.4s;
+  }
+  .nav-links.open{ right:0; }
+  .menu-toggle{ display:block; }
+  .about-grid, .location-grid, .contact-grid, .foot-grid{ grid-template-columns:1fr; gap:40px; }
+  .about-badge{ right:20px; }
+  .form-row{ grid-template-columns:1fr; }
+  section{ padding:70px 20px; }
+  .hero{ min-height:560px; }
+}
+@media (max-width:480px){
+  .btn{ padding:13px 26px; font-size:.88rem; }
+  .booking-form{ padding:26px 22px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="#home" class="logo">
+      <span class="brand">SANTA<span>SONS</span></span>
+      <span class="tag">Guest House</span>
+    </a>
+    <button class="menu-toggle" id="menuToggle">☰</button>
+    <div class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#rooms">Rooms</a>
+      <a href="#amenities">Amenities</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#location">Location</a>
+      <a href="#contact" class="btn-book">Book Now</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="home">
+  <div class="hero-content">
+    <span class="eyebrow">Lira City • Kampala Road</span>
+    <h1>Welcome to <em>Santasons</em> Guest House</h1>
+    <p>Your comfort, our priority. Experience warm Ugandan hospitality with self-contained rooms, free WiFi, DSTV, and a full bar — right on the highway.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn btn-primary">📞 Book Your Stay</a>
+      <a href="#rooms" class="btn btn-outline">Explore Rooms</a>
+    </div>
+  </div>
+  <a href="#about" class="scroll-hint">⌄</a>
+</header>
+
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img">
+        <img src="compound.jpeg" alt="Santasons Guest House courtyard">
+        <div class="about-badge">
+          <strong>24/7</strong>
+          <span>Hospitality</span>
+        </div>
+      </div>
+      <div class="about-text">
+        <span class="eyebrow" style="color:var(--gold-dark);letter-spacing:4px;font-size:.78rem;font-weight:600;text-transform:uppercase;">About Us</span>
+        <h2>A Home Away From Home in Lira City</h2>
+        <p>Santasons Guest House is your trusted stopover along the Kampala Highway in Amuca Adyangopiro, Lira City West Division. Whether you're travelling for business, passing through, or simply looking for a comfortable retreat, we offer a warm, clean, and secure environment.</p>
+        <p>Our rooms are all <strong>self-contained</strong> with modern amenities, and our friendly team ensures your stay is nothing short of exceptional.</p>
+        <ul class="about-list">
+          <li>Conveniently located on Kampala Road</li>
+          <li>All rooms fully self-contained</li>
+          <li>Free WiFi &amp; DSTV in every room</li>
+          <li>Secure parking &amp; laundry services</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="rooms" id="rooms">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Our Accommodation</span>
+      <h2>Comfortable, Self-Contained Rooms</h2>
+      <p>Every room at Santasons is designed with your comfort in mind — from cosy bedding to modern bathrooms.</p>
+      <div class="divider"></div>
+    </div>
+
+    <div class="rooms-grid">
+      <div class="room-card">
+        <img src="room1.jpeg" alt="Standard Room">
+        <div class="room-info">
+          <h3>Standard Room</h3>
+          <p>Cosy and clean, perfect for solo travellers or short stays. Includes all essential comforts.</p>
+          <div class="room-features">
+            <span>Self-contained</span><span>DSTV</span><span>Free WiFi</span>
+          </div>
+          <span class="rate">📞 Call for rates</span>
+        </div>
+      </div>
+
+      <div class="room-card">
+        <img src="room2.jpeg" alt="Deluxe Room">
+        <div class="room-info">
+          <h3>Deluxe Room</h3>
+          <p>Spacious comfort with wall-mounted TV, fan, and beautifully decorated ceilings.</p>
+          <div class="room-features">
+            <span>Self-contained</span><span>Fan</span><span>TV</span>
+          </div>
+          <span class="rate">📞 Call for rates</span>
+        </div>
+      </div>
+
+      <div class="room-card">
+        <img src="room3.jpeg" alt="Executive Room">
+        <div class="room-info">
+          <h3>Executive Room</h3>
+          <p>Our finest offering — extra space, elegant décor, and premium comfort throughout.</p>
+          <div class="room-features">
+            <span>Self-contained</span><span>Mosquito Net</span><span>DSTV</span>
+          </div>
+          <span class="rate">📞 Call for rates</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="amenities" id="amenities">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow" style="color:var(--gold);">What We Offer</span>
+      <h2>Everything You Need</h2>
+      <p>From the moment you arrive, we make sure you have everything for a relaxing stay.</p>
+      <div class="divider"></div>
+    </div>
+
+    <div class="amen-grid">
+      <div class="amen-card"><span class="amen-icon">🛏️</span><h4>Accommodation</h4><p>Fully self-contained rooms with modern bathrooms.</p></div>
+      <div class="amen-card"><span class="amen-icon">📶</span><h4>Free WiFi</h4><p>Fast, reliable internet throughout the property.</p></div>
+      <div class="amen-card"><span class="amen-icon">📺</span><h4>DSTV</h4><p>Enjoy your favourite channels in every room.</p></div>
+      <div class="amen-card"><span class="amen-icon">🍳</span><h4>Breakfast</h4><p>Start your day with a delicious breakfast.</p></div>
+      <div class="amen-card"><span class="amen-icon">🍻</span><h4>Bar &amp; Drinks</h4><p>Relax with a cold drink at our fully stocked bar.</p></div>
+      <div class="amen-card"><span class="amen-icon">🚗</span><h4>Secure Parking</h4><p>Ample, safe parking space for our guests.</p></div>
+      <div class="amen-card"><span class="amen-icon">👕</span><h4>Laundry</h4><p>Convenient laundry service on request.</p></div>
+      <div class="amen-card"><span class="amen-icon">🚿</span><h4>Hot Showers</h4><p>Instant water heaters in every bathroom.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Gallery</span>
+      <h2>Take a Look Around</h2>
+      <p>A glimpse into the comfort and warmth that awaits you at Santasons.</p>
+      <div class="divider"></div>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="hero.jpeg" alt="Building exterior"></div>
+      <div class="gallery-item"><img src="room1.jpeg" alt="Room"></div>
+      <div class="gallery-item"><img src="bathroom1.jpeg" alt="Bathroom"></div>
+      <div class="gallery-item"><img src="compound.jpeg" alt="Courtyard"></div>
+      <div class="gallery-item"><img src="room2.jpeg" alt="Room with TV"></div>
+      <div class="gallery-item"><img src="bathroom2.jpeg" alt="Bathroom toilet"></div>
+      <div class="gallery-item"><img src="room3.jpeg" alt="Room with net"></div>
+      <div class="gallery-item"><img src="signboard.jpeg" alt="Signboard"></div>
+    </div>
+  </div>
+</section>
+
+<section class="location" id="location">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Find Us</span>
+      <h2>Easy to Reach, Hard to Leave</h2>
+      <p>We're right on the Kampala Highway — you can't miss us.</p>
+      <div class="divider"></div>
+    </div>
+
+    <div class="location-grid">
+      <div class="location-text">
+        <h2>Our Location</h2>
+        <p>Santasons Guest House is located at <strong>Amuca Adyangopiro, Lira City West Division</strong>, on the Kampala Road highway.</p>
+
+        <div class="dir-card">
+          <span class="icon">🚗</span>
+          <div>
+            <h4>Coming from Lira City</h4>
+            <p>We're on the <strong>left-hand side</strong> as you head toward Kampala.</p>
+          </div>
+        </div>
+
+        <div class="dir-card">
+          <span class="icon">🛣️</span>
+          <div>
+            <h4>Coming from Kampala</h4>
+            <p>We're on the <strong>right-hand side</strong> as you enter Lira City.</p>
+          </div>
+        </div>
+
+        <div class="dir-card">
+          <span class="icon">🦓</span>
+          <div>
+            <h4>Landmark</h4>
+            <p>Look out for our zebra statue and the Santasons signboard!</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-embed">
+        <iframe
+          src="https://www.google.com/maps?q=Lira+City+Uganda+Kampala+Road&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Get In Touch</span>
+      <h2>Book Your Stay Today</h2>
+      <p>Call us directly or send us a message on WhatsApp — we'll respond right away.</p>
+      <div class="divider"></div>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>Contact Information</h3>
+        <p>Reach out any time — our team is available around the clock to assist you.</p>
+
+        <div class="contact-item">
+          <div class="ci-icon">📞</div>
+          <div>
+            <h4>Phone / WhatsApp</h4>
+            <a href="tel:+256781066491">0781 066 491</a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="ci-icon">📍</div>
+          <div>
+            <h4>Location</h4>
+            <p>Amuca Adyangopiro, Lira City West Division, Kampala Road</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="ci-icon">🕒</div>
+          <div>
+            <h4>Reception Hours</h4>
+            <p>Open 24 Hours, 7 Days a Week</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="ci-icon">💬</div>
+          <div>
+            <h4>WhatsApp</h4>
+            <a href="https://wa.me/256781066491" target="_blank">Chat with us now →</a>
+          </div>
+        </div>
+      </div>
+
+      <form class="booking-form" id="bookingForm">
+        <h3>Booking Inquiry</h3>
+        <p>Fill in your details and we'll open WhatsApp so you can send us your request instantly.</p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" required placeholder="Your name">
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" required placeholder="07XX XXX XXX">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="checkin">Check-in Date</label>
+            <input type="date" id="checkin" required>
+          </div>
+          <div class="form-group">
+            <label for="checkout">Check-out Date</label>
+            <input type="date" id="checkout" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="room">Room Preference</label>
+            <select id="room">
+              <option>Standard Room</option>
+              <option>Deluxe Room</option>
+              <option>Executive Room</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="guests">Guests</label>
+            <select id="guests">
+              <option>1 Guest</option>
+              <option>2 Guests</option>
+              <option>3 Guests</option>
+              <option>4+ Guests</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Special Requests (optional)</label>
+          <textarea id="message" placeholder="Anything we should know?"></textarea>
+        </div>
+
+        <button type="submit" class="form-submit">💬 Send via WhatsApp</button>
+        <p class="form-note">Your message will open in WhatsApp — no data is stored on this site.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <div class="brand">SANTA<span>SONS</span></div>
+      <p>Your comfort, our priority. Quality accommodation, warm hospitality, and everything you need for a memorable stay in Lira City.</p>
+    </div>
+    <div class="foot-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#rooms">Rooms</a></li>
+        <li><a href="#amenities">Amenities</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Book Now</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>Contact</h4>
+      <ul>
+        <li>📞 <a href="tel:+256781066491">0781 066 491</a></li>
+        <li>💬 <a href="https://wa.me/256781066491" target="_blank">WhatsApp Us</a></li>
+        <li>📍 Amuca Adyangopiro, Lira City</li>
+        <li>🛣️ Kampala Road Highway</li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© <span id="year"></span> Santasons Guest House. All rights reserved.</span>
+    <span>Lira City • Uganda</span>
+  </div>
+</footer>
+
+<div class="float-btns">
+  <a href="https://wa.me/256781066491" target="_blank" class="float-btn float-wa" title="WhatsApp Us">💬</a>
+  <a href="tel:+256781066491" class="float-btn float-call" title="Call Us">📞</a>
+</div>
+
+<script>
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+menuToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => navLinks.classList.remove('open'));
+});
+
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('navbar');
+  nav.style.boxShadow = window.scrollY > 40
+    ? '0 4px 30px rgba(0,0,0,.12)'
+    : '0 2px 20px rgba(0,0,0,.08)';
+});
+
+document.getElementById('bookingForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const name     = document.getElementById('name').value.trim();
+  const phone    = document.getElementById('phone').value.trim();
+  const checkin  = document.getElementById('checkin').value;
+  const checkout = document.getElementById('checkout').value;
+  const room     = document.getElementById('room').value;
+  const guests   = document.getElementById('guests').value;
+  const message  = document.getElementById('message').value.trim();
+
+  const text =
+`*New Booking Inquiry — Santasons Guest House*
+
+👤 *Name:* ${name}
+📞 *Phone:* ${phone}
+📅 *Check-in:* ${checkin}
+📅 *Check-out:* ${checkout}
+🛏️ *Room:* ${room}
+👥 *Guests:* ${guests}
+${message ? `📝 *Requests:* ${message}` : ''}
+
+Sent from the Santasons website.`;
+
+  const url = `https://wa.me/256781066491?text=${encodeURIComponent(text)}`;
+  window.open(url, '_blank');
+});
+
+document.getElementById('year').textContent = new Date().getFullYear();
+
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = 1;
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.room-card, .amen-card, .gallery-item, .about-grid, .location-grid, .contact-grid')
+  .forEach(el => {
+    el.style.opacity = 0;
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'opacity .8s ease, transform .8s ease';
+    io.observe(el);
+  });
+</script>
+
+</body>
+</html>
